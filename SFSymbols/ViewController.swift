@@ -9,22 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+     // imageViewの設定
+    private let imageView: UIImageView = {
+
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        imageView.contentMode = .scaleAspectFit
+
+        return imageView
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(imageView)
+        
+        // 真ん中に寄せる
+        imageView.center = view.center
 
-        // Do any additional setup after loading the view.
+        
+        // configで細かい設定ができる
+        let config = UIImage.SymbolConfiguration(weight: .ultraLight)
+        imageView.image = UIImage(systemName: "house", withConfiguration: config)
+        
+//        imageView.image = UIImage(systemName: "house")
+        
+        imageView.tintColor = .systemRed
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
